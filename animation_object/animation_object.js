@@ -23,7 +23,7 @@ function initialize()
 		antialias: true,
 		alpha: true
 	});
-	renderer.setClearColor(new THREE.Color('lightgrey'), 0);
+	renderer.setClearColor(new THREE.Color('lightgrey'), 0)
 	renderer.setSize(640, 480);
 	renderer.domElement.style.position = 'absolute'
 	renderer.domElement.style.top = '0px'
@@ -44,8 +44,8 @@ function initialize()
 
 	function onResize()
 	{
-		arToolkitSource.onResize();
-		arToolkitSource.copySizeTo(renderer.domElement);
+		arToolkitSource.onResize()
+		arToolkitSource.copySizeTo(renderer.domElement)
 		if(arToolkitContext.arController !== null)
 		{
 			arToolkitSource.copySizeTo(arToolkitContext.arController.canvas)
@@ -68,7 +68,7 @@ function initialize()
 	// create arToolkitContext
 	arToolkitContext = new THREEx.ArToolkitContext({
 		cameraParametersUrl: '../data/data/camera_para.dat',
-		detection: 'mono'
+		detectionMode: 'mono'
 	})
 
 	// copy projection matrix to camera when initialization complete

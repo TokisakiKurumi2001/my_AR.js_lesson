@@ -6,6 +6,8 @@ var markerRoot1;
 
 var mesh1;
 
+var loader, texture;
+
 initialize();
 animate();
 
@@ -89,8 +91,9 @@ function initialize()
 
 	let geometry1 = new THREE.BoxGeometry(1, 1, 1);
 
-	let loader = new THREE.TextureLoader();
-	let texture = loader.load('../data/images/earth-sphere.jpg', render);
+	loader = new THREE.TextureLoader();
+	let texture_str = randomTexture();
+	texture = loader.load(texture_str, render);
 	let material1 = new THREE.MeshLambertMaterial({ map: texture, opacity: 0.5 });
 
 	mesh1 = new THREE.Mesh(geometry1, material1);
@@ -135,4 +138,14 @@ function animate()
 	totalTime += deltaTime;
 	update();
 	render();
+}
+
+function randomTexture()
+{
+	var text = "../data/images/number_";
+	var number = Math.floor((Math.random()*6) + 1);
+	text += number;
+	text += ".png";
+	console.log(text);
+	return text;
 }
